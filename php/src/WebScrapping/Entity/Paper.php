@@ -45,4 +45,28 @@ class Paper {
     $this->authors = $authors;
   }
 
+  /**
+   * Convert the variables of this class into array.
+   *
+   * @return array
+   *   Array data.
+   */
+  public function toArray(): array {
+    $result = [
+      'Id' => $this->id,
+      'Title' => $this->title,
+      'Type' => $this->type,
+    ];
+
+    $index = 1;
+    foreach ($this->authors as $author) {
+      $author_id = 'Author ' . $index++;
+
+      $result[$author_id] = $author->name;
+      $result[$author_id . ' Institution'] = $author->institution;
+    }
+
+    return $result;
+  }
+
 }
