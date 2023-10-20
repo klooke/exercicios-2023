@@ -18,7 +18,8 @@ class Scrapper {
     $char_ban = [';', ',', '.'];
 
     foreach ($dom->getElementsByTagName('a') as $link) {
-      if (!str_contains($link->getAttribute('class'), 'paper-card')) {
+      $link_class = explode(' ', $link->getAttribute('class'));
+      if (!in_array('paper-card', $link_class)) {
         continue;
       }
 

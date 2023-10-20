@@ -23,7 +23,7 @@ class ScrapperTest extends TestCase {
     $this->paperDOM->loadHTML(
       '<html>'.
         '<body>'.
-          '<a class="paper-card">'.
+          '<a class="other-class paper-card">'.
             '<h4>Title</h4>\n'.
             '<div>'.
               '<span title="Instituto A">Pessoa A</span>'.
@@ -35,6 +35,9 @@ class ScrapperTest extends TestCase {
             '</div>'.
           '</a>'.
           '<a>Normal link</a>'.
+          '<a class="not-paper-card">'.
+            '<h4>Esse não é um paper</h4>\n'.
+          '</a>'.
         '</body>'.
       '</html>'
     );
