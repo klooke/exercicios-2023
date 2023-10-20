@@ -31,7 +31,7 @@ class Scrapper {
 
       foreach ($link->getElementsByTagName('span') as $span) {
         $name = str_replace($char_ban, "", $span->textContent);
-        $institution = str_replace($char_ban, "", $span->getAttribute('title'));
+        $institution = $span->getAttribute('title');
 
         if (!strlen($name) || !strlen($institution)) {
           continue;
